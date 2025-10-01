@@ -18,6 +18,12 @@
     </div>
 
     <div>
+        <%= form.label :status %><br>
+        <%= form.select :status, Visible::VALID_STATUSES, selected: article.status || 'public' %>
+    </div>
+
+
+    <div style="padding-top: 20px;">
         <%= form.submit %>
     </div>
 <% end %>

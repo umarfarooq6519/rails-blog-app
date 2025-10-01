@@ -1,0 +1,17 @@
+<% unless comment.archived? %>
+    <p style="padding-top: 5px">
+        <strong>Name:</strong>
+        <%= comment.commenter %>
+    </p>
+
+    <p style="line-height: 0px;">
+        <strong>Comment:</strong>
+        <%= comment.body %>
+    </p>
+    <p>
+    <%= link_to "Delete Comment", [comment.article, comment], data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Are you sure?"
+                } %>
+  </p>
+<% end %>
