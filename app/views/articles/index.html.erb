@@ -1,14 +1,38 @@
-<h1>Articles</h1>
-<p>Following are the <%= Article.public_count %> Articles</p>
+<div class="container py-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 style="font-weight: 600;" class="display-6">Articles</h1>
+    <%= link_to "New Article", new_article_path, class: "btn btn-primary" %>
+  </div>
+  <p class="text-muted mb-4">Found <%= Article.public_count %> articles</p>
 
-<ul>
+  <div class="row">
     <% @articles.each do |article| %>
       <% unless article.archived? %>
-        <li>
-          <%= link_to article.title, article  %>
-        </li>
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title"><%= article.title %></h5>
+              <p style="font-weight: 300;" class="card-text text-truncate"><%= article.body&.truncate(100) %></p>
+              <div class="d-grid gap-2">
+                <%= link_to "Read Article", article, class: "btn btn-outline-primary" %>
+              </div>
+            </div>
+            <div class="card-footer text-muted small">
+              <% if article.comments.any? %>
+                <%= pluralize(article.comments.count, 'comment') %>
+              <% else %>
+                No comments yet
+              <% end %>
+            </div>
+          </div>
+        </div>
       <% end %>
     <% end %>
-</ul>
+  </div>
 
-<%= link_to "+ New Article", new_article_path %>
+  <% if @articles.none? || @articles.all?(&:archived?) %>
+    <div class="alert alert-info text-center my-5">
+      No articles available. Be the first to create one!
+    </div>
+  <% end %>
+</div>

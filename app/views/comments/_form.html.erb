@@ -1,18 +1,14 @@
 <%= form_with model: [ @article, @article.comments.build ] do |form| %>
-    <p>
-        <%= form.label :Name %> </br>
-        <%= form.text_field :commenter %>
-    </p>
-    <p>
-        <%= form.label :Comment %> </br>
-        <%= form.text_area :body %>
-    </p>
-    <p>
-        <%= form.label :status %><br>
-        <%= form.select :status, Visible::VALID_STATUSES, { selected: 'public' }, { disabled: true } %>
-    </p>
+    <div class="mb-3">
+        <%= form.label :Name, class: "form-label" %>
+        <%= form.text_field :commenter, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+        <%= form.label :Comment, class: "form-label" %>
+        <%= form.text_area :body, class: "form-control", rows: 3 %>
+    </div>
 
-    <p>
-        <%= form.submit %>
-    </p>
+    <div>
+        <%= form.submit "Add Comment", class: "btn btn-primary" %>
+    </div>
 <% end %>

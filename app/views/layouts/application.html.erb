@@ -18,11 +18,21 @@
     <link rel="apple-touch-icon" href="/icon.png">
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
+    <%= stylesheet_link_tag "bootstrap.min", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="d-flex flex-column min-vh-100">
+  
+    <main class="flex-fill">
+      <%= yield %>
+    </main>
+
+    <footer class="bg-light py-3">
+      <div class="container text-center text-muted">
+        <p class="mb-0">&copy; <%= Time.now.year %> Rails Blog App</p>
+      </div>
+    </footer>
   </body>
 </html>

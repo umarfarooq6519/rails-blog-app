@@ -1,30 +1,40 @@
-<a href="/">< Back</a>
+<div class="container py-4">
+  <%= link_to "< Back", "/", class: "btn btn-sm btn-outline-secondary mb-3" %>
 
-<h1> <%= @article.title %> </h1>
+  <div class="row align-items-start mb-4">
+    <div class="col-md-9">
+      <h1 style="font-weight: 600;" class="display-5 mb-3"> <%= @article.title %> </h1>
+      <p class="lead mb-0"> <%= @article.body %> </p>
+    </div>
+    <div class="col-md-3 mt-3 mt-md-0 d-flex flex-column align-items-stretch align-items-md-end">
+      <div class="d-flex gap-2 mb-2">
+        <%= link_to "Edit", edit_article_path(@article), class: "btn btn-sm btn-outline-primary" %>
+        <%= link_to "Destroy", article_path(@article), class: "btn btn-sm btn-outline-danger", data: { 
+          turbo_method: :delete,
+          turbo_confirm: "Are you Sure?"
+        } %>
+      </div>
+      <div class="text-muted text-md-end">
+        Status: <span class="badge <%= status_badge_class(@article.status) %>"><%= @article.status %></span>
+      </div>
+    </div>
+  </div>
 
-<p style="line-height: 0px"> <%= @article.body %> </p>
-
-<ul>
-    <li>
-        <%= link_to "Edit", edit_article_path(@article) %>
-
-    </li>
-    <li>
-        <%= link_to "Destroy", article_path(@article), data: { 
-    turbo_method: :delete,
-    turbo_confirm: "Are you Sure?"
- } %>
-    </li>
-</ul>
-
-<h3 style="line-height: 0px; padding-top: 20px;">> Comments</h3>
-<% if @article.comments.empty? %>
-        <p> <%= "No Comment Found" %> </p>
-<% else %>
+  <div class="">
+      <h4 class="mb-2">Comments</h4>
+      <% if @article.comments.empty? %>
+        <p class="text-muted"> <%= "No Comment Found" %> </p>
+      <% else %>
         <%= render @article.comments %>
-<% end %>
-    
+      <% end %>
+  </div>
 
-
-<h3 style="line-height: 0px; padding-top: 20px;">> Add a comment: </h3>
-<%= render "comments/form", article: @article %>
+  <div class="card mt-4">
+    <div class="card-header">
+      <h4 class="mb-0">Add a comment</h4>
+    </div>
+    <div class="card-body">
+      <%= render "comments/form", article: @article %>
+    </div>
+  </div>
+</div>

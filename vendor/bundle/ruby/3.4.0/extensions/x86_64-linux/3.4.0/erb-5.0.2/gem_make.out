@@ -1,0 +1,19 @@
+current directory: /home/umar/repos/rails-blog-app/vendor/bundle/ruby/3.4.0/gems/erb-5.0.2/ext/erb/escape
+/home/umar/.rbenv/versions/3.4.5/bin/ruby extconf.rb
+checking for rb_ext_ractor_safe() in ruby.h... yes
+creating Makefile
+
+current directory: /home/umar/repos/rails-blog-app/vendor/bundle/ruby/3.4.0/gems/erb-5.0.2/ext/erb/escape
+make DESTDIR\= sitearchdir\=./.gem.20251002-27265-psob34 sitelibdir\=./.gem.20251002-27265-psob34 clean
+
+current directory: /home/umar/repos/rails-blog-app/vendor/bundle/ruby/3.4.0/gems/erb-5.0.2/ext/erb/escape
+make DESTDIR\= sitearchdir\=./.gem.20251002-27265-psob34 sitelibdir\=./.gem.20251002-27265-psob34
+compiling escape.c
+linking shared-object erb/escape.so
+
+current directory: /home/umar/repos/rails-blog-app/vendor/bundle/ruby/3.4.0/gems/erb-5.0.2/ext/erb/escape
+make DESTDIR\= sitearchdir\=./.gem.20251002-27265-psob34 sitelibdir\=./.gem.20251002-27265-psob34 install
+/usr/bin/install -c -m 0755 escape.so ./.gem.20251002-27265-psob34/erb
+
+current directory: /home/umar/repos/rails-blog-app/vendor/bundle/ruby/3.4.0/gems/erb-5.0.2/ext/erb/escape
+make DESTDIR\= sitearchdir\=./.gem.20251002-27265-psob34 sitelibdir\=./.gem.20251002-27265-psob34 clean

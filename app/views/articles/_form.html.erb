@@ -1,29 +1,26 @@
 <%= form_with model: article do |form| %>
-    <div>
-        <%= form.label :title %>
-        <br>
-        <%= form.text_field :title %>
+    <div class="mb-3">
+        <%= form.label :title, class: "form-label" %>
+        <%= form.text_field :title, class: "form-control" %>
         <% article.errors.full_messages_for(:title).each do |msg| %>
-            <div> <%= msg %> </div>
+            <div class="form-text text-danger"> <%= msg %> </div>
         <% end %>
     </div>
 
-    <div>
-        <%= form.label :body %>
-        <br>
-        <%= form.text_area :body %>
+    <div class="mb-3">
+        <%= form.label :body, class: "form-label" %>
+        <%= form.text_area :body, class: "form-control", rows: 5 %>
         <% article.errors.full_messages_for(:body).each do |msg| %>
-            <div> <%= msg %> </div>
+            <div class="form-text text-danger"> <%= msg %> </div>
         <% end %>
     </div>
 
-    <div>
-        <%= form.label :status %><br>
-        <%= form.select :status, Visible::VALID_STATUSES, selected: article.status || 'public' %>
+    <div class="mb-4">
+        <%= form.label :status, class: "form-label" %>
+        <%= form.select :status, Visible::VALID_STATUSES, { selected: article.status || 'public' }, { class: "form-select" } %>
     </div>
 
-
-    <div style="padding-top: 20px;">
-        <%= form.submit %>
+    <div>
+        <%= form.submit class: "btn btn-primary" %>
     </div>
 <% end %>

@@ -1,0 +1,19 @@
+current directory: /home/umar/repos/rails-blog-app/vendor/bundle/ruby/3.4.0/gems/stringio-3.1.7/ext/stringio
+/home/umar/.rbenv/versions/3.4.5/bin/ruby extconf.rb
+checking for rb_io_mode_t in ruby/io.h... no
+creating Makefile
+
+current directory: /home/umar/repos/rails-blog-app/vendor/bundle/ruby/3.4.0/gems/stringio-3.1.7/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20251002-27265-1ibxjg sitelibdir\=./.gem.20251002-27265-1ibxjg clean
+
+current directory: /home/umar/repos/rails-blog-app/vendor/bundle/ruby/3.4.0/gems/stringio-3.1.7/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20251002-27265-1ibxjg sitelibdir\=./.gem.20251002-27265-1ibxjg
+compiling stringio.c
+linking shared-object stringio.so
+
+current directory: /home/umar/repos/rails-blog-app/vendor/bundle/ruby/3.4.0/gems/stringio-3.1.7/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20251002-27265-1ibxjg sitelibdir\=./.gem.20251002-27265-1ibxjg install
+/usr/bin/install -c -m 0755 stringio.so ./.gem.20251002-27265-1ibxjg
+
+current directory: /home/umar/repos/rails-blog-app/vendor/bundle/ruby/3.4.0/gems/stringio-3.1.7/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20251002-27265-1ibxjg sitelibdir\=./.gem.20251002-27265-1ibxjg clean
