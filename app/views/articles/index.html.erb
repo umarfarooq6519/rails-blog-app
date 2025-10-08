@@ -5,6 +5,10 @@
   </div>
   <p class="text-muted mb-4">Found <%= Article.public_count %> articles</p>
 
+  <div class="d-flex justify-content-center my-3">
+    <%= paginate @articles %>
+  </div>
+
   <div class="row">
     <% @articles.each do |article| %>
       <% unless article.archived? %>
@@ -28,6 +32,10 @@
         </div>
       <% end %>
     <% end %>
+  </div>
+
+  <div class="d-flex justify-content-center my-3">
+    <%= paginate @articles %>
   </div>
 
   <% if @articles.none? || @articles.all?(&:archived?) %>

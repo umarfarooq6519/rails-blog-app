@@ -2,8 +2,25 @@ class ArticlesController < ApplicationController
   http_basic_authenticate_with name: "admin", password: "123", except: [ :index, :show ]
 
   def index
-    # Get all articles
-    @articles= Article.all
+    # Paginated, filtered list (exclude archived)
+    scope = Article.where.not(status: "archived").order(created_at: :desc)
+    @articles = scope.page(params[:page])
+
+    respond_to do |format|
+      format.html # renders app/views/articles/index.html.erb
+      format.json do
+        render json: {
+          data: @articles,
+          meta: {
+            current_page: @articles.current_page,
+            next_page: @articles.next_page,
+            prev_page: @articles.prev_page,
+            total_pages: @articles.total_pages,
+            total_count: @articles.total_count
+          }
+        }
+      end
+    end
   end
 
   def show
