@@ -16,7 +16,9 @@
           <div class="card h-100">
             <div class="card-body">
               <h5 class="card-title"><%= article.title %></h5>
-              <p style="font-weight: 300;" class="card-text text-truncate"><%= article.body&.truncate(100) %></p>
+              <p style="font-weight: 300;" class="card-text text-truncate">
+                <%= article.body&.truncate(100) %>
+              </p>
               <div class="d-grid gap-2">
                 <%= link_to "Read Article", article, class: "btn btn-outline-primary" %>
               </div>
