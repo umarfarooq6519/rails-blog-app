@@ -24,9 +24,41 @@
   </head>
 
   <body class="d-flex flex-column min-vh-100">
-  
+    <!-- Navbar -->
+    <nav class="navbar bg-light border-bottom">
+      <div class="container">
+        <%= link_to "Articles", root_path, class: "navbar-brand fs-2 " %>
+
+        <div class="ms-auto d-flex align-items-center gap-2">
+          <% if user_signed_in? %>
+            <span class="navbar-text me-2">Signed in as <strong><%= current_user.email %></strong></span>
+            <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-outline-danger btn-sm" %>
+          <% else %>
+            <%= link_to "Sign in", new_user_session_path, class: "btn btn-outline-primary btn-sm" %>
+            <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-sm" %>
+          <% end %>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Flash messages -->
+    <div class="container mt-3">
+      <% flash.each do |key, value| %>
+        <% bootstrap_class = case key.to_s
+             when "notice", "success" then "alert-success"
+             when "alert", "error" then "alert-danger"
+             else "alert-info"
+           end %>
+        <div class="alert <%= bootstrap_class %>" role="alert">
+          <%= value %>
+        </div>
+      <% end %>
+    </div>
+
     <main class="flex-fill">
-      <%= yield %>
+      <div class="container py-3">
+        <%= yield %>
+      </div>
     </main>
 
     <footer class="bg-light py-3">

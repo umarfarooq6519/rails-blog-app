@@ -1,9 +1,8 @@
 <div class="container py-4">
   <div class="d-flex justify-content-between align-items-center mb-3">
-    <h1 style="font-weight: 600;" class="display-6">Articles</h1>
+  <h2 class="text-muted mb-4">Found <%= Article.public_count %> articles</h2>
     <%= link_to "New Article", new_article_path, class: "btn btn-primary" %>
   </div>
-  <p class="text-muted mb-4">Found <%= Article.public_count %> articles</p>
 
   <div class="d-flex justify-content-center my-3">
     <%= paginate @articles %>
